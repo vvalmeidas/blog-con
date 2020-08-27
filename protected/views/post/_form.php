@@ -28,18 +28,6 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'author'); ?>
-		<?php echo $form->textField($model,'author',array('size'=>60,'maxlength'=>200)); ?>
-		<?php echo $form->error($model,'author'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'created_at'); ?>
-		<?php echo $form->textArea($model,'created_at',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'created_at'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->labelEx($model,'category'); ?>
 		<?php echo $form->dropDownList($model, 'category', Post::$CATEGORIES); ?>
 		<?php echo $form->error($model,'category'); ?>
