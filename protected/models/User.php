@@ -89,4 +89,12 @@ class User extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+
+	/**
+	 * @return true, if the password is valid; false, otherwise.
+	 */
+	public function validatePassword($password)
+	{
+		return md5($password) == $this->password;
+	}
 }

@@ -25,7 +25,7 @@ $this->menu=array(
 		'id',
 		'title',
 		'content',
-		'author',
+		'author_id',
 		'created_at',
 		'category',
 	),
