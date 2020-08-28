@@ -8,14 +8,20 @@ $this->breadcrumbs=array(
 	'Update',
 );
 
-$this->menu=array(
-	array('label'=>'List Post', 'url'=>array('index')),
-	array('label'=>'Create Post', 'url'=>array('create')),
-	array('label'=>'View Post', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Manage Post', 'url'=>array('admin')),
-);
+if(Yii::app()->user->id != null) {
+	$this->menu=array(
+		array('label'=>'Novo Post', 'url'=>array('create')),
+		array('label'=>'Visualizar o Post', 'url'=>array('view', 'id'=>$model->id)),
+		array('label'=>'Logout', 'url'=>array('/site/logout')),
+	);
+} else {
+	$this->menu=array(
+		array('label'=>'Login', 'url'=>array('/site/login')),
+	);
+}
+
 ?>
 
-<h1>Update Post <?php echo $model->id; ?></h1>
+<h1>Atualização de Post</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

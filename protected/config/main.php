@@ -8,7 +8,7 @@
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'Conexa Blog',
-
+	'defaultController' => 'post',
 	// preloading 'log' component
 	'preload'=>array('log'),
 

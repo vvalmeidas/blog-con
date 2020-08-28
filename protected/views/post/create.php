@@ -7,12 +7,17 @@ $this->breadcrumbs=array(
 	'Create',
 );
 
-$this->menu=array(
-	array('label'=>'List Post', 'url'=>array('index')),
-	array('label'=>'Manage Post', 'url'=>array('admin')),
-);
+if(Yii::app()->user->id != null) {
+	$this->menu=array(
+		array('label'=>'Logout', 'url'=>array('/site/logout')),
+	);
+} else {
+	$this->menu=array(
+		array('label'=>'Login', 'url'=>array('/site/login')),
+	);
+}
 ?>
 
-<h1>Create Post</h1>
+<h1>Novo Post</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

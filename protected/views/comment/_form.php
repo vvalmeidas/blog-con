@@ -4,55 +4,53 @@
 /* @var $form CActiveForm */
 ?>
 
-<div class="form">
+<div class="comment-form_wrapper">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'comment-form',
 	'enableAjaxValidation'=>true,
 )); ?>
-
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
-
-	<?php echo $form->errorSummary($model); ?>
-
+	<h3>Deixe seu comentário</h3>
+	<?php echo $form->errorSummary($model, 'Detectamos os seguintes erros:'); ?>
 	<div class="row">
-		<?php echo $form->labelEx($model,'id'); ?>
-		<?php echo $form->textField($model,'id'); ?>
-		<?php echo $form->error($model,'id'); ?>
+		<?php echo $form->textField($model,'author', array(
+			'maxlength' => 100,
+			'class' => 'comment-form_input comment-form_author',
+			'placeholder' => 'Nome'
+		)); ?>
+		<?php echo $form->error($model,'author', array(
+			'class' => 'comment-form_error'
+		)); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'author'); ?>
-		<?php echo $form->textArea($model,'author',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'author'); ?>
+		<?php echo $form->textField($model,'email',array(
+			'maxlength' => 50,
+			'class' => 'comment-form_input comment-form_email',
+			'placeholder' => 'E-mail'
+		)); ?>
+		<?php echo $form->error($model,'email', array(
+			'class' => 'comment-form_error'
+		)); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'email'); ?>
-		<?php echo $form->textArea($model,'email',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'email'); ?>
+		<?php echo $form->textArea($model,'content',array(
+			'maxlength' => 1000,
+			'rows'=>10, 
+			'cols'=>50,
+			'class' => 'comment-form_input comment-form_content',
+			'placeholder' => 'Comentário'
+		)); ?>
+		<?php echo $form->error($model,'content', array(
+			'class' => 'comment-form_error'
+		)); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'content'); ?>
-		<?php echo $form->textArea($model,'content',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'content'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'created_at'); ?>
-		<?php echo $form->textArea($model,'created_at',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'created_at'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'post_id'); ?>
-		<?php echo $form->textField($model,'post_id'); ?>
-		<?php echo $form->error($model,'post_id'); ?>
-	</div>
-
-	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton('Salvar', array(
+			'class' => 'comment-form_button'
+		)); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

@@ -39,9 +39,13 @@ class Comment extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('author, email, content', 'required'),
-			array('author, email', 'length', 'max'=>200),
-			array('email', 'email'),
+			array('author', 'required', 'message' => 'O campo nome é obrigatório'),
+			array('author', 'length', 'max'=>100, 'message' => 'O nome deve ter no máximo 100 caracteres'),
+			array('email', 'required', 'message' => 'O campo e-mail é obrigatório'),
+			array('email', 'length', 'max'=>50, 'message' => 'O e-mail deve ter no máximo 100 caracteres'),
+			array('content', 'required', 'message' => 'Seu comentário está vazio'),
+			array('content', 'length', 'max'=>1000, 'message' => 'O comentário deve ter no máximo 100 caracteres'),
+			array('email', 'email', 'message' => 'E-mail possui formato inválido'),
 		);
 	}
 
@@ -63,9 +67,9 @@ class Comment extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'author' => 'Author',
-			'email' => 'Email',
-			'content' => 'Comment',
+			'author' => 'Nome',
+			'email' => 'E-mail',
+			'content' => 'Texto do comentário',
 			'created_at' => 'Created At',
 			'post_id' => 'Post',
 		);

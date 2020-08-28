@@ -33,6 +33,17 @@ class Post extends CActiveRecord
 	}
 
 	/**
+	 * Get the url for the search based on a category
+	 * @param string $category the index of the category
+	 * @return the url for the search of this category
+	 */
+	public static function getUrlSearch($category) {
+		return Yii::app()->createUrl('post/index', array(
+			'category' => $category,
+		));
+	}
+
+	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
@@ -47,7 +58,6 @@ class Post extends CActiveRecord
 	{
 		return Yii::app()->createUrl('post/view', array(
 			'id' => $this->id,
-			'title' => $this->title,
 		));
 	}
 
@@ -59,8 +69,11 @@ class Post extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, content, category', 'required'),
-			array('title', 'length', 'max'=>200),
+			array('title', 'required', 'message' => 'O campo título é obrigatório'),
+			array('content', 'required', 'message' => 'O campo conteúdo é obrigatório'),
+			array('title', 'length', 'max'=>100, 'message' => 'O título deve ter no máximo 100 caracteres'),
+			array('content', 'length', 'max'=>10000, 'message' => 'O título deve ter no máximo 10000 caracteres'),
+			array('category', 'required'),
 			array('category', 'in', 'range' => array_keys(Post::$CATEGORIES)),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
@@ -89,11 +102,11 @@ class Post extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'title' => 'Title',
-			'content' => 'Content',
-			'author_id' => 'Author',
+			'title' => 'Título',
+			'content' => 'Conteúdo',
+			'author_id' => 'Autor',
 			'created_at' => 'Created At',
-			'category' => 'Category',
+			'category' => 'Categoria',
 		);
 	}
 
@@ -120,6 +133,7 @@ class Post extends CActiveRecord
 
 	/**
 	 * Add a new comment to this post.
+	 * @param Comment $comment the new comment
 	 */
 	public function addComment($comment)
 	{

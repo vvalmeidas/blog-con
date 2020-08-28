@@ -4,37 +4,53 @@
 /* @var $form CActiveForm */
 ?>
 
-<div class="form">
+<div class="post_form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'post-form',
-	'enableAjaxValidation'=>false,
+	'enableAjaxValidation'=>true,
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
-
-	<?php echo $form->errorSummary($model); ?>
+	<?php echo $form->errorSummary($model, 'Detectamos os seguintes erros:'); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'title'); ?>
-		<?php echo $form->textField($model,'title',array('size'=>60,'maxlength'=>200)); ?>
-		<?php echo $form->error($model,'title'); ?>
+		<?php echo $form->textField($model,'title',array(
+			'maxlength' => 100,
+			'placeholder' => 'Título',
+			'class' => 'input_post'
+		)); ?>
+		<?php echo $form->error($model,'title', array(
+			'class' => 'error_post'
+		)); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'content'); ?>
-		<?php echo $form->textArea($model,'content',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'content'); ?>
+		<?php echo $form->textArea($model,'content',array(
+			'maxlength' => 10000,
+			'rows'=>20,
+			'cols'=>100,
+			'placeholder' => 'Conteúdo',
+			'class' => 'input_post'
+		)); ?>
+		<?php echo $form->error($model,'content', array(
+			'class' => 'error_post'
+		)); ?>
+	</div>
+	
+	<div class="row">
+		Categoria:
+		<?php echo $form->dropDownList($model, 'category', Post::$CATEGORIES, array(
+			'class' => 'category_post',
+		)); ?>
+		<?php echo $form->error($model,'category', array(
+			'class' => 'error_post'
+		)); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'category'); ?>
-		<?php echo $form->dropDownList($model, 'category', Post::$CATEGORIES); ?>
-		<?php echo $form->error($model,'category'); ?>
-	</div>
-
-	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton('Salvar', array(
+			'class' => 'button_post'
+		)); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

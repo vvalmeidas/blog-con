@@ -86,7 +86,7 @@ class PostController extends Controller
 		$model=new Post;
 
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		$this->performAjaxValidation($model);
 
 		if(isset($_POST['Post']))
 		{
@@ -110,7 +110,7 @@ class PostController extends Controller
 		$model=$this->loadModel($id);
 
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		$this->performAjaxValidation($model);
 
 		if(isset($_POST['Post']))
 		{
@@ -192,9 +192,7 @@ class PostController extends Controller
 			if(isset($_GET['id']))
 			{
 				$this->_model = Post::model()->findByPk($_GET['id']);
-				$this->_model->category = Post::$CATEGORIES[$this->_model->category];
 			}
-				
 			
 			if($this->_model == null)
 				throw new CHttpException('404', 'A página solicitada não existe');
