@@ -4,7 +4,7 @@
 
 $this->breadcrumbs=array(
 	'Posts'=>array('index'),
-	'Create',
+	'Criar',
 );
 
 if(Yii::app()->user->id != null) {
@@ -18,6 +18,4 @@ if(Yii::app()->user->id != null) {
 }
 ?>
 
-<h1>Novo Post</h1>
-
-<?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php echo $this->renderPartial('_form', array('model'=>$model, 'title' => 'Novo Post')); ?>

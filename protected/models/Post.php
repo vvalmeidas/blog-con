@@ -72,7 +72,7 @@ class Post extends CActiveRecord
 			array('title', 'required', 'message' => 'O campo título é obrigatório'),
 			array('content', 'required', 'message' => 'O campo conteúdo é obrigatório'),
 			array('title', 'length', 'max'=>100, 'message' => 'O título deve ter no máximo 100 caracteres'),
-			array('content', 'length', 'max'=>10000, 'message' => 'O título deve ter no máximo 10000 caracteres'),
+			array('content', 'length', 'max'=>10000, 'tooLong' => 'O conteúdo deve ter no máximo 10000 caracteres'),
 			array('category', 'required'),
 			array('category', 'in', 'range' => array_keys(Post::$CATEGORIES)),
 			// The following rule is used by search().

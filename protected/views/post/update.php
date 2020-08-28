@@ -11,7 +11,7 @@ $this->breadcrumbs=array(
 if(Yii::app()->user->id != null) {
 	$this->menu=array(
 		array('label'=>'Novo Post', 'url'=>array('create')),
-		array('label'=>'Visualizar o Post', 'url'=>array('view', 'id'=>$model->id)),
+		array('label'=>'Visualizar Post', 'url'=>array('view', 'id'=>$model->id)),
 		array('label'=>'Logout', 'url'=>array('/site/logout')),
 	);
 } else {
@@ -22,6 +22,4 @@ if(Yii::app()->user->id != null) {
 
 ?>
 
-<h1>Atualização de Post</h1>
-
-<?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php echo $this->renderPartial('_form', array('model'=>$model, 'title' => 'Atualizar Post')); ?>

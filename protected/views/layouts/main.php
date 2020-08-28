@@ -4,17 +4,8 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="language" content="en" />
-
-	<!-- blueprint CSS framework 
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/screen.css" media="screen, projection" />
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/print.css" media="print" />
-	<!--[if lt IE 8]>
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection" />
-	<![endif]-->
-
-<!-- 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" /> 
- -->
+	<link rel="icon" type="image/png" sizes="32x32" href="<?php echo Yii::app()->request->baseUrl; ?> /images/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="<?php echo Yii::app()->request->baseUrl; ?> /images/favicon-16x16.png">
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" /> 
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/post.css" /> 
@@ -28,8 +19,8 @@
 
 <div class="container">
 	<div class="header">
-		<a href="/blog/index.php">
-			<img class="logo" src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo.png" alt="">
+		<a href="../">
+			<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo.png" alt="">
 		</a>
 		
 	</div>
@@ -55,6 +46,7 @@
 			</div>
 			<div class='sidebar_item'>
 				ADMINISTRADOR
+				
 				<?php
 					$this->beginWidget('zii.widgets.CPortlet');
 					$this->widget('zii.widgets.CMenu', array(
@@ -67,7 +59,7 @@
 		</div>
 	</div>
 
-	<div class='footer'>
+	<footer class='footer'>
 		<h2>
 			Copyright &copy; <?php echo date('Y'); ?> by Conexa
 		</h2>

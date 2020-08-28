@@ -5,6 +5,7 @@
 ?>
 
 <div class="post_form">
+<h1 clas='form_title'><?php echo $title; ?></h1>
 
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'post-form',
