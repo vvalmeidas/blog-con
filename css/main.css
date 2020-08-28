@@ -4,6 +4,10 @@ body {
   margin: 0;
 }
 
+textarea {
+  font-family: Arial;
+}
+
 .header {
   padding: 20px;
   background: white;
@@ -55,14 +59,6 @@ body {
   color: #ea824b;
 }
 
-.operations li:hover {
-  background-color: #ea824b;
-}
-
-.operations li a:hover {
-  text-decoration: none;
-  color: white;
-}
 
 .content {
   float: left;

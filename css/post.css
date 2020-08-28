@@ -20,9 +20,16 @@
     margin-top: 0;
 }
 
+.post_resume {
+    color: black;
+    text-align: justify;
+
+}
+
 .post_text {
     color: black;
     text-align: justify;
+    white-space: pre-line;
 }
 
 .post_category {
